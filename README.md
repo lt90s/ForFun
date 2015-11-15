@@ -1,0 +1,3 @@
+# ForFun
+
+### Some code snippits
