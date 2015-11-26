@@ -14,7 +14,7 @@
 static inline int
 __getif_idx(int sock_fd, const char *interface)
 {
-	struct ifreq ifr;
+    struct ifreq ifr;
     strcpy(ifr.ifr_name, interface);
 	if (ioctl(sock_fd, SIOCGIFINDEX, &ifr, sizeof(ifr)) < 0) {
 		return -1;
