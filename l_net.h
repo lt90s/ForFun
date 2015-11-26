@@ -14,8 +14,8 @@
 static inline int
 __getif_idx(int sock_fd, const char *interface)
 {
-    struct ifreq ifr;
-    strcpy(ifr.ifr_name, interface);
+	struct ifreq ifr;
+	strcpy(ifr.ifr_name, interface);
 	if (ioctl(sock_fd, SIOCGIFINDEX, &ifr, sizeof(ifr)) < 0) {
 		return -1;
 	}
@@ -26,16 +26,16 @@ static inline int
 getif_idx(const char *interface)
 {
 	int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-    return __getif_idx(sock_fd, interface);
+	return __getif_idx(sock_fd, interface);
 }
 
 static inline in_addr_t
 __getif_ip(int sock_fd, const char *interface)
 {
-    struct ifreq ifr;
-    struct sockaddr_in *sin;
-    strcpy(ifr.ifr_name, interface);
-    if (ioctl(sock_fd, SIOCGIFADDR, &ifr, sizeof(ifr)) < 0) {
+	struct ifreq ifr;
+	struct sockaddr_in *sin;
+	strcpy(ifr.ifr_name, interface);
+	if (ioctl(sock_fd, SIOCGIFADDR, &ifr, sizeof(ifr)) < 0) {
 		return -1;
 	}
 	sin = (struct sockaddr_in *)&ifr.ifr_addr;
@@ -111,9 +111,9 @@ static void dump_IP(const struct iphdr *ip)
 {
 	struct in_addr s, d;
 	if (ip == NULL) {
-        return;
+		return;
 	}
-    s.s_addr = ip->saddr;
+	s.s_addr = ip->saddr;
 	d.s_addr = ip->daddr;
 	printf("IP VERSION: %d\n", ip->version);
 	printf("IP Header Length: %d\n", ip->ihl);
