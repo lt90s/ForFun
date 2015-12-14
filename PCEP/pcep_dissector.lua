@@ -25,12 +25,12 @@ do
 			else
 				bits[i] = 1
 			end
-			v = v / 2
+			v = math.floor(v / 2)
 		end
 		local r = ''
 		local num = 0
-		local idx = e
-		while idx < 8 do
+		local idx = e + 1
+		while idx <= 8 do
 			r = r .. '.'
 			idx = idx + 1
 		end
